@@ -1,0 +1,70 @@
+.part_title {
+  text-align: center;
+  font-family: $font_mincho;
+  font-size: 5vw;
+  color: $primary-b;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  &::before {
+    content:'';
+    height: 1px;
+    width: 35vw;
+    background-color: $primary-b;
+    position: absolute;
+    top: calc(50% + 1.5px);
+    right: 50%;
+    transform: translate(50%,-50%);
+  }
+  .mod-en {
+    font-size: 3vw;
+    display: inline-block;
+    margin-top: 3vw;
+  }
+}
+.about {
+  text-align: center;
+  padding: 13vw 0;
+  background: url(../images/about_background.jpg) no-repeat center center/cover;
+}
+.about_text {
+  font-family: $font_mincho;
+  font-size: 3.4vw;
+  color: $primary-b;
+  margin-top: 5vw;
+  line-height: 1.5;
+}
+.bath,.sauna,.price,.access {
+  margin-top: 13vw;
+  padding: 0 4vw
+}
+.bath_img,.sauna_img {
+  margin-top: 3.2vw;
+}
+.bath_text,.sauna_text {
+  font-size: 3.4vw;
+  margin-top: 3.2vw;
+  line-height: 1.5;
+  text-align: justify;
+}
+.price_table {
+  margin-top: 3.2vw;
+}
+.price_tableItem {
+  width: 100%;
+  border-top: 1px solid $primary-b;
+  font-size: 3.4vw;
+  line-height: 1.5;
+  &:last-child {
+    border-bottom: 1px solid $primary-b;
+  }
+}
+.price_tableElement {
+  width: 75%;
+  padding: 2vw 6vw
+}
+.price_tablePrice {
+  width: 25%;
+  padding: 2vw 6vw;
+  text-align: center;
+}

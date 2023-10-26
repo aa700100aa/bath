@@ -1,0 +1,358 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700&family=Noto+Serif:wght@500;800&display=swap");
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, button, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline; }
+
+html {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+li, dd {
+  list-style-type: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle; }
+
+q, blockquote {
+  quotes: none; }
+
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block; }
+
+img {
+  vertical-align: bottom;
+  border: none; }
+
+input[type="submit"],
+input[type="button"] {
+  border-radius: 0;
+  -webkit-box-sizing: content-box;
+  -webkit-appearance: button;
+  -moz-appearance: button;
+       appearance: button;
+  border: none;
+  box-sizing: border-box; }
+  input[type="submit"]::-webkit-search-decoration,
+  input[type="button"]::-webkit-search-decoration {
+    display: none; }
+  input[type="submit"]::focus,
+  input[type="button"]::focus {
+    outline-offset: -2px; }
+
+/*
+ +	common variable
+ */
+/*
+ + fontfamily変数	
+ */
+/*
+ + 	カラーを格納する変数
+ +
+ + 用途(できるだけ伝わりやすい英語)-種類(英字1文字)で変数名をつけること
+ + ex : primary(サイトイメージカラー)-s(セカンダリカラー)  lはライトカラー,dは暗いカラーのように
+ */
+/*
+ +	共通で使うmixinはここにまとめる
+ */
+/* chrome, edge */
+/*
+ +	core css
+ */
+* {
+  box-sizing: border-box; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  font-family: YuGothic, "Yu Gothic Medium", "Yu Gothic", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "Droid Sans", "Noto Sans JP", sans-serif;
+  color: #000;
+  letter-spacing: 0.2em; }
+  body.add-lock {
+    overflow: hidden; }
+
+a {
+  transition: opacity .2s;
+  text-decoration: none;
+  cursor: pointer; }
+  a:hover {
+    opacity: 0.7; }
+
+img {
+  width: 100%;
+  height: auto;
+  vertical-align: bottom; }
+
+.part_title {
+  text-align: center;
+  font-family: YuMincho, "Yu Mincho", "Hiragino Mincho ProN", HG明朝E, ＭＳＰ明朝, "MS 明朝", "Noto Serif JP", serif;
+  font-size: 5vw;
+  color: #102a4d;
+  position: relative;
+  display: flex;
+  flex-direction: column; }
+  .part_title::before {
+    content: '';
+    height: 1px;
+    width: 35vw;
+    background-color: #102a4d;
+    position: absolute;
+    top: calc(50% + 1.5px);
+    right: 50%;
+    transform: translate(50%, -50%); }
+  .part_title .mod-en {
+    font-size: 3vw;
+    display: inline-block;
+    margin-top: 3vw; }
+
+.about {
+  text-align: center;
+  padding: 13vw 0;
+  background: url(../images/about_background.jpg) no-repeat center center/cover; }
+
+.about_text {
+  font-family: YuMincho, "Yu Mincho", "Hiragino Mincho ProN", HG明朝E, ＭＳＰ明朝, "MS 明朝", "Noto Serif JP", serif;
+  font-size: 3.4vw;
+  color: #102a4d;
+  margin-top: 5vw;
+  line-height: 1.5; }
+
+.bath, .sauna, .price, .access {
+  margin-top: 13vw;
+  padding: 0 4vw; }
+
+.bath_img, .sauna_img {
+  margin-top: 3.2vw; }
+
+.bath_text, .sauna_text {
+  font-size: 3.4vw;
+  margin-top: 3.2vw;
+  line-height: 1.5;
+  text-align: justify; }
+
+.price_table {
+  margin-top: 3.2vw; }
+
+.price_tableItem {
+  width: 100%;
+  border-top: 1px solid #102a4d;
+  font-size: 3.4vw;
+  line-height: 1.5; }
+  .price_tableItem:last-child {
+    border-bottom: 1px solid #102a4d; }
+
+.price_tableElement {
+  width: 75%;
+  padding: 2vw 6vw; }
+
+.price_tablePrice {
+  width: 25%;
+  padding: 2vw 6vw;
+  text-align: center; }
+
+.header {
+  position: fixed;
+  visibility: hidden;
+  height: 0;
+  top: 0;
+  opacity: 0;
+  z-index: 10;
+  transition: visibility 0.5s,opacity 0.5s; }
+  .header.add-visible {
+    opacity: 1;
+    height: auto;
+    visibility: visible; }
+
+.header_logoWrap {
+  border-top: solid #102a4d 1vw;
+  padding: 1.5vw 0;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw; }
+
+.header_logo {
+  width: 15vw;
+  transform: translateX(-1.1vw); }
+
+.header_logoInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 1.8vw;
+  transform: translateX(-1.1vw); }
+
+.header_title {
+  width: 31vw; }
+
+.header_text {
+  font-family: YuMincho, "Yu Mincho", "Hiragino Mincho ProN", HG明朝E, ＭＳＰ明朝, "MS 明朝", "Noto Serif JP", serif;
+  font-size: 3vw;
+  margin-top: 0.3vw;
+  color: #102a4d;
+  transform: translateX(1.2vw); }
+
+.kv_logoWrap {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 1.5vw 0;
+  border-top: solid #102a4d 1vw; }
+
+.kv_logo {
+  width: 18vw; }
+
+.kv_title {
+  width: 29vw;
+  margin-top: 1.2vw; }
+
+.kv_text {
+  font-family: YuMincho, "Yu Mincho", "Hiragino Mincho ProN", HG明朝E, ＭＳＰ明朝, "MS 明朝", "Noto Serif JP", serif;
+  font-size: 3.2vw;
+  color: #102a4d;
+  margin-top: 0.3vw;
+  transform: translateX(0.6vw); }
+
+.kv_main {
+  position: relative; }
+
+.kv_mainText {
+  position: absolute;
+  top: 4vw;
+  right: 6vw;
+  color: #fff;
+  font-size: 3.8vw;
+  padding: 12vw 1.5vw;
+  background-color: #102a4d;
+  font-family: YuMincho, "Yu Mincho", "Hiragino Mincho ProN", HG明朝E, ＭＳＰ明朝, "MS 明朝", "Noto Serif JP", serif;
+  -ms-writing-mode: tb-rl;
+  -webkit-writing-mode: vertical-rl;
+          writing-mode: vertical-rl;
+  letter-spacing: 0.32em; }
+
+.kv_mainImage {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100vh;
+  height: calc(var(--loadVh, 1vh) * 100 - var(--kvLogoWrapHeight)); }
+
+.nav_hmbg {
+  position: fixed;
+  top: 4.8vw;
+  right: 0;
+  width: 18vw;
+  padding: 2vw;
+  z-index: 11;
+  background-color: rgba(255, 255, 255, 0); }
+
+.nav_hmbgInner {
+  position: relative;
+  height: 6vw; }
+
+.nav_hmbgBorder {
+  display: inline-block;
+  height: 2px;
+  background-color: #102a4d;
+  width: 60%;
+  position: absolute;
+  right: 50%;
+  transform: translateX(50%);
+  transform-origin: center;
+  transition: opacity 0.5s,top 0.5s,bottom 0.5s,right 0.5s,transform 0.5s; }
+  .nav_hmbgBorder:nth-child(1) {
+    top: 0; }
+  .nav_hmbgBorder:nth-child(2) {
+    top: calc(50% - 1px); }
+  .nav_hmbgBorder:nth-child(3) {
+    bottom: 0; }
+  .add-open .nav_hmbgBorder:nth-child(1) {
+    top: calc(50% - 1px);
+    transform: rotate(45deg) translateX(0%);
+    right: 20%; }
+  .add-open .nav_hmbgBorder:nth-child(2) {
+    opacity: 0; }
+  .add-open .nav_hmbgBorder:nth-child(3) {
+    bottom: calc(50% - 1px);
+    transform: rotate(-45deg) translateX(0%);
+    right: 20%; }
+
+.nav {
+  position: fixed;
+  width: 100%;
+  height: calc(var(--vh, 1vh) * 100 - var(--headerHeight));
+  top: calc(var(--headerHeight));
+  left: 0;
+  z-index: 10;
+  visibility: hidden;
+  background: url(../images/nav_background.jpg) no-repeat center center/cover;
+  transition: visibility 0.5s,opacity 0.5s;
+  opacity: 0; }
+  .nav.add-open {
+    visibility: visible;
+    opacity: 1; }
+
+.nav_inner {
+  position: relative;
+  height: calc(var(--vh, 1vh) * 100 - var(--headerHeight)); }
+
+.nav_list {
+  position: absolute;
+  bottom: 52%;
+  right: 50%;
+  transform: translate(50%, 50%); }
+
+.nav_listItem {
+  text-align: center; }
+
+.nav_listLink {
+  color: #fff;
+  font-family: YuMincho, "Yu Mincho", "Hiragino Mincho ProN", HG明朝E, ＭＳＰ明朝, "MS 明朝", "Noto Serif JP", serif;
+  padding: 4vw 0;
+  font-size: 4vw;
+  display: inline-block; }
+
+.util-pc {
+  display: none; }
+  @media screen and (min-width: 768px) {
+    .util-pc {
+      display: block; } }
+
+.util-sp {
+  display: block; }
+  @media screen and (min-width: 768px) {
+    .util-sp {
+      display: none; } }
+
+@media print {
+  html {
+    zoom: 0.8; } }

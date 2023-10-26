@@ -1,0 +1,95 @@
+<%_
+  data = {
+    url: '',/* スラッシュ始まりのドメイン以下URL ( TOPの場合は空文字で ) */
+    name: 'top',/* bodyタグにつくid名 */
+    title:'',/* TOPの場合は空文字で */
+    description:'',/* TOPの場合は空文字で */
+    keyword:'',/* TOPの場合は空文字で */
+    current:'./',
+    assetsDir: 'assets/',
+    alternateDir: '',
+    noindex: true,
+  } 
+_%>
+<%_ data.content = function(){ _%>
+<main class="content">
+  <h1 class="kv_logoWrap" id="js-kvLogoWrap">
+    <img class="kv_logo" src="./assets/images/header_logo.svg" alt="">
+    <img class="kv_title" src="./assets/images/header_title.png" alt="平和湯">
+    <p class="kv_text">HEIWAYU</p>
+  </h1>
+  <div class="kv_main">
+    <p class="kv_mainText">心も体もゆっくり休める空間</p>
+    <picture>
+      <source srcset="./assets/images/pc/kv.jpg" media="(min-width: 768px)"/>
+      <img class="kv_mainImage" src="./assets/images/kv.jpg" alt="">
+    </picture>
+  </div>
+  <section class="about">
+    <h2 class="part_title">
+      <span>平和湯とは</span>
+      <span class="mod-en">ABOUT</span>
+    </h2>
+    <p class="about_text">神奈川県川崎市にある<br>創業70年の歴史ある銭湯です。</p>
+    <p class="about_text">体をリラックスさせる効果のある温泉と<br>サウナを完備しております。</p>
+    <p class="about_text">長時間楽しめる居心地の良いおもてなし空間で<br>心も体もリフレッシュしていただければ幸いです。</p>
+  </section>
+  <section class="bath">
+    <h2 class="part_title">
+      <span>温泉</span>
+      <span class="mod-en">SPA</span>
+    </h2>
+    <img class="bath_img" src="./assets/images/bath.jpg" alt="">
+    <p class="bath_text">平和湯は非加熱源泉。さらに源泉掛け流しで提供しています。泉質にもこだわり、地下1200mから汲み上げた温泉は温泉成分も濃く、体の芯まで染み渡ってゆきます。<br>また、天然の温泉のため泉質は常に一定ではございません。昼間と夜で温泉の色味が変わって見えることも平和湯の魅力の一つです。</p>
+  </section>
+  <section class="sauna">
+    <h2 class="part_title">
+      <span>サウナ</span>
+      <span class="mod-en">SAUNA</span>
+    </h2>
+    <img class="sauna_img" src="./assets/images/sauna.jpg" alt="">
+    <p class="sauna_text">男女とも中温と高温の２種類のサウナを完備。サウナ初心者から玄人サウナーまで幅広く楽しめる仕様になっております。<br>２つのサウナがあるので、その日の気分でアウフグースを楽しみたい方も、一人でサウナを楽しみたい方もどちらも楽しめます。</p>
+  </section>
+  <section class="price">
+    <h2 class="part_title">
+      <span>価格</span>
+      <span class="mod-en">PRICE</span>
+    </h2>
+    <table class="price_table">
+      <tbody>
+        <tr class="price_tableItem">
+          <td class="price_tableElement">入浴 大人（中学生以上）</td>
+          <td class="price_tablePrice">¥500</td>
+        </tr>
+        <tr class="price_tableItem">
+          <td class="price_tableElement">入浴 子供（小学生以下）</td>
+          <td class="price_tablePrice">¥300</td>
+        </tr>
+        <tr class="price_tableItem">
+          <td class="price_tableElement">サウナ</td>
+          <td class="price_tablePrice">¥400</td>
+        </tr>
+        <tr class="price_tableItem">
+          <td class="price_tableElement">レンタルタオル（バスタオル＆フェイスタオル）</td>
+          <td class="price_tablePrice">¥200</td>
+        </tr>
+        <tr class="price_tableItem">
+          <td class="price_tableElement">シャンプー＆リンス</td>
+          <td class="price_tablePrice">¥200</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <section class="access">
+    <h2 class="part_title">
+      <span>アクセス</span>
+      <span class="mod-en">ACCESS</span>
+    </h2>
+  </section>
+</main>
+<%_ } _%> 
+<%_ /* 以下includeファイル */ _%>
+<%- include( data.current + 'includes/_head', { data : data } ); %>
+<%- data.content(); %>
+<%- include( data.current + 'includes/_footer', { data : data } ); %>
+<%- include( data.current + 'includes/_foot', { data : data } ); %>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_レイヤー_2" data-name="レイヤー 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 91.21 91.21">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #102a4d;
+        stroke-width: 0px;
+      }
+    </style>
+  </defs>
+  <g id="_レイヤー_1-2" data-name="レイヤー 1">
+    <path class="cls-1" d="m45.61,91.21C20.46,91.21,0,70.76,0,45.61S20.46,0,45.61,0s45.61,20.46,45.61,45.61-20.46,45.61-45.61,45.61Zm0-83.21c-20.74,0-37.61,16.87-37.61,37.61s16.87,37.61,37.61,37.61,37.61-16.87,37.61-37.61S66.34,8,45.61,8Z"/>
+    <rect class="cls-1" x="17.35" y="11.31" width="56.52" height="5"/>
+    <rect class="cls-1" x="5.18" y="27.8" width="75.76" height="5"/>
+    <rect class="cls-1" x="43.5" y="12.64" width="5" height="74.97"/>
+    <rect class="cls-1" x="4.82" y="43.4" width="82.68" height="5"/>
+    <rect class="cls-1" x="23.61" y="40.17" width="5" height="41.35" transform="translate(-34.83 86.74) rotate(-89.8)"/>
+    <rect class="cls-1" x="26.43" y="46" width="5" height="37.29" transform="translate(-.68 .31) rotate(-.6)"/>
+    <rect class="cls-1" x="12.53" y="67.28" width="20.88" height="5" transform="translate(-48.19 51.53) rotate(-57.39)"/>
+    <rect class="cls-1" x="35.16" y="58.41" width="5" height="32.16" transform="translate(-34.4 32.37) rotate(-32.87)"/>
+    <rect class="cls-1" x="29.08" y="5.34" width="5" height="33.16" transform="translate(-3.44 37.79) rotate(-59.15)"/>
+    <rect class="cls-1" x="43.51" y="19.46" width="32.76" height="5" transform="translate(-2.66 34.45) rotate(-31.43)"/>
+  </g>
+</svg>

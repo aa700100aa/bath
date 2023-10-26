@@ -1,0 +1,43 @@
+
+.kv_logoWrap {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 1.5vw 0;
+  border-top: solid $primary-b 1vw;
+}
+.kv_logo {
+  width: 18vw;
+}
+.kv_title {
+  width: 29vw;
+  margin-top: 1.2vw;
+}
+.kv_text {
+  font-family: $font_mincho;
+  font-size: 3.2vw;
+  color: $primary-b;
+  margin-top: 0.3vw;
+  transform: translateX(0.6vw);
+}
+.kv_main {
+  position: relative;
+}
+.kv_mainText {
+  position: absolute;
+  top: 4vw;
+  right: 6vw;
+  color: #fff;
+  font-size: 3.8vw;
+  padding: 12vw 1.5vw;
+  background-color: $primary-b;
+  font-family: $font_mincho;
+  -ms-writing-mode: tb-rl;
+  writing-mode: vertical-rl;
+  letter-spacing: 0.32em;
+}
+.kv_mainImage {
+  object-fit: cover;
+  height: 100vh;
+  height: calc(var(--loadVh, 1vh) * 100 - var(--kvLogoWrapHeight));
+}
