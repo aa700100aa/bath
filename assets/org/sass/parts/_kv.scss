@@ -5,13 +5,24 @@
   flex-direction: column;
   padding: 1.5vw 0;
   border-top: solid $primary-b 1vw;
+  @include media(sp,min) {
+    border-top: solid $primary-b 5px;
+    padding: 13px 0;
+  }
 }
 .kv_logo {
   width: 18vw;
+  @include media(sp,min) {
+    width: 80px;
+  }
 }
 .kv_title {
   width: 29vw;
   margin-top: 1.2vw;
+  @include media(sp,min) {
+    width: 128px;
+    margin-top: 8px;
+  }
 }
 .kv_text {
   font-family: $font_mincho;
@@ -19,6 +30,11 @@
   color: $primary-b;
   margin-top: 0.3vw;
   transform: translateX(0.6vw);
+  @include media(sp,min) {
+    font-size: 13px;
+    transform: translateX(2px);
+    margin-top: 3px;
+  }
 }
 .kv_main {
   position: relative;
@@ -35,6 +51,12 @@
   -ms-writing-mode: tb-rl;
   writing-mode: vertical-rl;
   letter-spacing: 0.32em;
+  @include media(sp,min) {
+    font-size: 16px;
+    top: 30px;
+    right: 5vw;
+    padding: 20px 8px;
+  }
 }
 .kv_mainImage {
   object-fit: cover;

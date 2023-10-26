@@ -12,6 +12,9 @@
     height: auto;
     visibility: visible;
   }
+  @include media(sp,min) {
+    margin-left: 55px;
+  }
 }
 .header_logoWrap {
   border-top: solid $primary-b 1vw;
@@ -21,10 +24,18 @@
   align-items: center;
   justify-content: center;
   width: 100vw;
+  @include media(sp,min) {
+    border-top: solid $primary-b 5px;
+    padding: 8px 0;
+  }
 }
 .header_logo {
   width: 15vw;
   transform: translateX(-1.1vw);
+  @include media(sp,min) {
+    width: 70px;
+    transform: translateX(-30px);
+  }
 }
 .header_logoInner {
   display: flex;
@@ -32,9 +43,16 @@
   align-items: center;
   margin-left: 1.8vw;
   transform: translateX(-1.1vw);
+  @include media(sp,min) {
+    margin-left: 10px;
+    transform: translateX(-30px);
+  }
 }
 .header_title {
   width: 31vw;
+  @include media(sp,min) {
+    width: 140px;
+  }
 }
 .header_text {
   font-family: $font_mincho;
@@ -42,4 +60,9 @@
   margin-top: 0.3vw;
   color: $primary-b;
   transform: translateX(1.2vw);
+  @include media(sp,min) {
+    font-size: 12px;
+    margin-top: 2px;
+    transform: translateX(2px);
+  }
 }

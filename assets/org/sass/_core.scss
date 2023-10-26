@@ -18,6 +18,12 @@ body {
   }
 }
 
+.contents {
+  @include media(sp,min) {
+    margin-left: 55px;
+  }
+}
+
 a {
   transition: opacity .2s;
   text-decoration: none;

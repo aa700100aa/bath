@@ -1,16 +1,31 @@
-
-.nav_hmbg {
+.nav_hmbgWrap {
   position: fixed;
   top: 4.8vw;
   right: 0;
+  z-index: 11;
+  @include media(sp,min) {
+    left: 0;
+    top: 0;
+    background-color: $primary-b;
+    width: 55px;
+    height: 100%;
+  }
+}
+.nav_hmbg {
   width: 18vw;
   padding: 2vw;
-  z-index: 11;
   background-color: rgba(255,255,255,0);
+  @include media(sp,min) {
+    width: 55px;
+    padding: 15px 8px;
+  }
 }
 .nav_hmbgInner {
   position: relative;
   height: 6vw;
+  @include media(sp,min) {
+    height: 30px;
+  }
 }
 .nav_hmbgBorder {
   display: inline-block;
@@ -18,10 +33,15 @@
   background-color: $primary-b;
   width: 60%;
   position: absolute;
+  z-index: 12;
   right: 50%;
   transform: translateX(50%);
   transform-origin: center;
   transition: opacity 0.5s,top 0.5s,bottom 0.5s,right 0.5s,transform 0.5s;
+  @include media(sp,min) {
+    background-color: #fff;
+    width: 100%;
+  }
   &:nth-child(1) {
     top: 0;
   }
@@ -36,6 +56,9 @@
       top: calc(50% - 1px);
       transform: rotate(45deg) translateX(0%);
       right: 20%;
+      @include media(sp,min) {
+        right: 2%;
+      }
     }
     &:nth-child(2) {
       opacity: 0;
@@ -44,6 +67,9 @@
       bottom: calc(50% - 1px);
       transform: rotate(-45deg) translateX(0%);
       right: 20%;
+      @include media(sp,min) {
+        right: 2%;
+      }
     }
   }
 }
@@ -61,6 +87,10 @@
   &.add-open {
     visibility: visible;
     opacity: 1;
+  }
+  @include media(sp,min) {
+    margin-left: 55px;
+    background: url(../images/pc/nav_background.jpg) no-repeat center center/cover;
   }
 }
 .nav_inner {
@@ -82,4 +112,8 @@
   padding: 4vw 0;
   font-size: 4vw;
   display: inline-block;
+  @include media(sp,min) {
+    padding: 20px 0;
+    font-size: 16px;
+  }
 }

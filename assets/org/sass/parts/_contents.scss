@@ -6,6 +6,9 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  @include media(sp,min) {
+    font-size: 24px;
+  }
   &::before {
     content:'';
     height: 1px;
@@ -15,17 +18,28 @@
     top: calc(50% + 1.5px);
     right: 50%;
     transform: translate(50%,-50%);
+    @include media(sp,min) {
+      width: 200px;
+    }
   }
   .mod-en {
     font-size: 3vw;
     display: inline-block;
     margin-top: 3vw;
+    @include media(sp,min) {
+      font-size: 16px;
+      margin-top: 20px;
+    }
   }
 }
 .about {
   text-align: center;
   padding: 13vw 0;
   background: url(../images/about_background.jpg) no-repeat center center/cover;
+  @include media(sp,min) {
+    padding: 80px 0;
+    background: url(../images/pc/about_background.jpg) no-repeat center center/cover;
+  }
 }
 .about_text {
   font-family: $font_mincho;
@@ -33,22 +47,62 @@
   color: $primary-b;
   margin-top: 5vw;
   line-height: 1.5;
+  @include media(sp,min) {
+    font-size: 14px;
+    margin-top: 40px;
+    &:not(.mod-first) {
+      margin-top: 20px;
+    }
+  }
 }
 .bath,.sauna,.price,.access {
   margin-top: 13vw;
-  padding: 0 4vw
+  padding: 0 4vw;
+  @include media(sp,min) {
+    margin: 100px auto 0;
+    padding: 0 40px;
+    max-width: 900px;
+  }
+}
+.bath_inner,.sauna_inner {
+  @include media(sp,min) {
+    display: flex;
+    margin-top: 35px;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+.sauna_inner {
+  @include media(sp,min) {
+    flex-direction: row-reverse;
+  }
 }
 .bath_img,.sauna_img {
-  margin-top: 3.2vw;
+  @include media(sp,max) {
+    margin-top: 3.2vw;
+  }
+  @include media(sp,min) {
+    width: 48%;
+  }
 }
 .bath_text,.sauna_text {
   font-size: 3.4vw;
-  margin-top: 3.2vw;
   line-height: 1.5;
   text-align: justify;
+  @include media(sp,max) {
+    margin-top: 3.2vw;
+  }
+  @include media(sp,min) {
+    font-size: 14px;
+    width: 48%;
+  }
 }
 .price_table {
   margin-top: 3.2vw;
+  width: 100%;
+  @include media(sp,min) {
+    margin-top: 35px;
+  }
 }
 .price_tableItem {
   width: 100%;
@@ -58,13 +112,65 @@
   &:last-child {
     border-bottom: 1px solid $primary-b;
   }
+  @include media(sp,min) {
+    font-size: 14px;
+  }
 }
 .price_tableElement {
   width: 75%;
-  padding: 2vw 6vw
+  padding: 2vw 6vw;
+  @include media(sp,min) {
+    padding: 15px 30px;
+  }
 }
 .price_tablePrice {
   width: 25%;
   padding: 2vw 6vw;
   text-align: center;
+  @include media(sp,min) {
+    padding: 15px 30px;
+  }
+}
+.access {
+  text-align: center;
+}
+.access_textWrap {
+  margin-top: 4vw;
+  @include media(sp,min) {
+    margin-top: 35px;
+  }
+}
+.access_address {
+  font-size: 3.4vw;
+  line-height: 1.5;
+  @include media(sp,min) {
+    font-size: 14px;
+  }
+}
+.access_time {
+  margin-top: 1.2vw;
+  font-size: 3.4vw;
+  line-height: 1.5;
+  @include media(sp,min) {
+    font-size: 14px;
+    margin-top: 10px;
+  }
+}
+.access_mapWrap {
+  margin-top: 3.2vw;
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-top: 70%;
+  @include media(sp,min) {
+    margin-top: 30px;
+    padding-top: 50%;
+  }
+}
+.access_map {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
