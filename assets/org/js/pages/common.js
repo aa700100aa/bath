@@ -1,4 +1,4 @@
-import scrollTo from '../module/scrollTo';
+import {SmoothScroll} from '../module/smoothScroll';
 
 export const common = () => {
   ((d, w) => {
@@ -59,7 +59,7 @@ export const common = () => {
 
     const navHmbg = d.getElementById('js-navHmbg');
     const nav = d.getElementById('js-nav');
-    const navClickEvent = (event) => {
+    const navClickEvent = () => {
       navHmbg.classList[navHmbg.classList.contains('add-open') ? 'remove' : 'add']('add-open');
       if(kvLogoWrap.getBoundingClientRect().bottom <= 0 || navHmbg.classList.contains('add-open')) {
         header.classList.add('add-visible');
@@ -76,24 +76,17 @@ export const common = () => {
       }
       nav.classList[navHmbg.classList.contains('add-open') ? 'add' : 'remove']('add-open');
     }
-    navHmbg.addEventListener('click',(event)=>{
-      navClickEvent(event);
+    navHmbg.addEventListener('click',()=>{
+      navClickEvent();
     });
-    nav.addEventListener('click',(event)=>{
-      navClickEvent(event);
+    nav.addEventListener('click',()=>{
+      navClickEvent();
     });
 
-    //ページ内スクロール
-    const pageLinks = [].slice.call(d.getElementsByClassName('js-pageLink'));
-    pageLinks.forEach(function(element){
-      element.addEventListener('click',(event)=>{
-        event.preventDefault();
-        scrollTo({
-          target : d.getElementById(event.target.getAttribute('href').replace('#', '')),
-          durationTime : 300,
-          headerPadding : header.clientHeight
-        });
-      });
+    const smoothScroll = new SmoothScroll({
+      triggerClass: 'js-pageLink',//対象クラス名
+      targetValue: 'href',//スクロールさせる位置
+      duration: 300 //処理時間
     });
   })(document, window);
 };

@@ -592,8 +592,9 @@ img {
     .nav_inner {
       min-height: 500px; } }
 
-.nav_list {
-  transform: translateX(-30px); }
+@media screen and (min-width: 768px) {
+  .nav_list {
+    transform: translateX(-30px); } }
 
 .nav_listItem {
   text-align: center; }

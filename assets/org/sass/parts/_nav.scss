@@ -111,7 +111,9 @@
   }
 }
 .nav_list {
-  transform: translateX(-30px);
+  @include media(sp,min) {
+    transform: translateX(-30px);
+  }
 }
 .nav_listItem {
   text-align: center;
