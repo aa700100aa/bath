@@ -61,5 +61,9 @@
 .kv_mainImage {
   object-fit: cover;
   height: 100vh;
+  min-height: 100vw;
   height: calc(var(--loadVh, 1vh) * 100 - var(--kvLogoWrapHeight));
+  @include media(sp,min) {
+    min-height: 370px;
+  }
 }

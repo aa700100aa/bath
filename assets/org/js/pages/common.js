@@ -1,4 +1,4 @@
-import {scrollLock, releaseScrollLock} from '../module/scrollLock';
+import scrollTo from '../module/scrollTo';
 
 export const common = () => {
   ((d, w) => {
@@ -59,21 +59,41 @@ export const common = () => {
 
     const navHmbg = d.getElementById('js-navHmbg');
     const nav = d.getElementById('js-nav');
-    navHmbg.addEventListener('click',(event)=>{
-      navHmbg.classList[event.currentTarget.classList.contains('add-open') ? 'remove' : 'add']('add-open');
-      if(kvLogoWrap.getBoundingClientRect().bottom <= 0 || event.currentTarget.classList.contains('add-open')) {
+    const navClickEvent = (event) => {
+      navHmbg.classList[navHmbg.classList.contains('add-open') ? 'remove' : 'add']('add-open');
+      if(kvLogoWrap.getBoundingClientRect().bottom <= 0 || navHmbg.classList.contains('add-open')) {
         header.classList.add('add-visible');
       } else {
         header.classList.remove('add-visible');
       }
-      d.body.classList[event.currentTarget.classList.contains('add-open') ? 'add' : 'remove']('add-lock');
-      if(event.currentTarget.classList.contains('add-open')) {
+      d.body.classList[navHmbg.classList.contains('add-open') ? 'add' : 'remove']('add-lock');
+      if(navHmbg.classList.contains('add-open')) {
+        //nav_innerの高さ取得のため再計算
         setVh();
         scrollLock(nav);
       } else {
         releaseScrollLock();
       }
-      nav.classList[event.currentTarget.classList.contains('add-open') ? 'add' : 'remove']('add-open');
+      nav.classList[navHmbg.classList.contains('add-open') ? 'add' : 'remove']('add-open');
+    }
+    navHmbg.addEventListener('click',(event)=>{
+      navClickEvent(event);
+    });
+    nav.addEventListener('click',(event)=>{
+      navClickEvent(event);
+    });
+
+    //ページ内スクロール
+    const pageLinks = [].slice.call(d.getElementsByClassName('js-pageLink'));
+    pageLinks.forEach(function(element){
+      element.addEventListener('click',(event)=>{
+        event.preventDefault();
+        scrollTo({
+          target : d.getElementById(event.target.getAttribute('href').replace('#', '')),
+          durationTime : 300,
+          headerPadding : header.clientHeight
+        });
+      });
     });
   })(document, window);
 };

@@ -15,14 +15,21 @@
   width: 18vw;
   padding: 2vw;
   background-color: rgba(255,255,255,0);
+  cursor: pointer;
   @include media(sp,min) {
     width: 55px;
     padding: 15px 8px;
+    transition: opacity .2s;
+    &:hover {
+      opacity: 0.7;
+    }
   }
 }
 .nav_hmbgInner {
   position: relative;
   height: 6vw;
+  display: inline-block;
+  width: 100%;
   @include media(sp,min) {
     height: 30px;
   }
@@ -96,12 +103,15 @@
 .nav_inner {
   position: relative;
   height: calc(var(--vh, 1vh) * 100 - var(--headerHeight));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include media(sp,min) {
+    min-height: 500px;
+  }
 }
 .nav_list {
-  position: absolute;
-  bottom: 52%;
-  right: 50%;
-  transform: translate(50%,50%);
+  transform: translateX(-30px);
 }
 .nav_listItem {
   text-align: center;

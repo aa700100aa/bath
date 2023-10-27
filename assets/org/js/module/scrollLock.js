@@ -21,7 +21,8 @@ const lockScroll = function (e) {
 };
 
 const lockModal = (overlay) => {
-
+  handler = lockScroll.bind(overlay);
+  window.addEventListener('touchmove', handler, { passive: false });
 }
 const releaseModal = () => {
   window.removeEventListener('touchmove', handler, { passive: false });

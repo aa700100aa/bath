@@ -56,11 +56,11 @@
   }
 }
 .bath,.sauna,.price,.access {
-  margin-top: 13vw;
-  padding: 0 4vw;
+  margin-top: 7.5vw;
+  padding: 7.5vw 4vw 0;
   @include media(sp,min) {
-    margin: 100px auto 0;
-    padding: 0 40px;
+    margin: 50px auto 0;
+    padding: 50px 40px 0;
     max-width: 900px;
   }
 }

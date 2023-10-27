@@ -7,6 +7,7 @@
   opacity: 0;
   z-index: 10;
   transition: visibility 0.5s,opacity 0.5s;
+  border-bottom: solid 1px $primary-b;
   &.add-visible {
     opacity: 1;
     height: auto;

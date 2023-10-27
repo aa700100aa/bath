@@ -1,18 +1,5 @@
 <%_ include('_const') _%>
 <%_ include('_functions') _%>
-<%_
-  /* head要素を定数化 */
-  TITLE= 'サイトタイトル';
-  DESCRIPTION= 'サイトデスクリプション';
-  KEYWORD= 'サイトキーワード';
-  OG_IMG= '/assets/example.jpg'
-  OG_DESCRIPTION= '';
-  SITEURL= 'http://example.com';
-  ENCORD_TITLE = '',
-  ENCORD_TWITTER_DESCRIPTION = '',
-  ENCORD_SITEURL= '';
-  DATE = new Date() - 0;/* キャッシュクリア用に日付を取得 */
-_%>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -21,14 +8,13 @@ _%>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="format-detection" content="telephone=no">
   <title><% if( data.title !== '' ){ %><%= data.title + ' | ' ; %><%= TITLE %><% }else{ %><%= TITLE %><% } %></title>
-  <meta name="description" content="<% if( data.description !== '' ){ %><%= data.description; %><% }else{ %><%= DESCRIPTION %><% } %>" />
-  <meta name="keywords" content="<% if( data.keyword !== '' ){ %><%= data.keyword + ','; %><%= KEYWORD %><% }else{ %><%= KEYWORD %><% } %>" />
+  <meta name="description" content="<% if( data.description !== '' ){ %><%= data.description; %><% }else{ %><%= DESCRIPTION %><% } %>">
   <meta name="twitter:card" content="summary_large_image">
   <meta property="og:title" content="<% if( data.title !== '' ){ %><%= data.title + ' | ' ; %><%= TITLE %><% }else{ %><%= TITLE %><% } %>">
   <meta property="og:type" content="website">
   <meta property="og:url" content="<% if( data.url !== '' ){ %><%= SITEURL + data.url; %><% }else{ %><%= SITEURL %><% } %>">
   <meta property="og:image" content="<%= SITEURL + OG_IMG %>">
-  <meta property="og:description" content="<% if( data.description !== '' ){ %><%= data.description; %><% }else{ %><%= OG_DESCRIPTION %><% } %>">
+  <meta property="og:description" content="<% if( data.description !== '' ){ %><%= data.description; %><% }else{ %><%= DESCRIPTION %><% } %>">
   <meta property="og:site_name" content="<% if( data.title !== '' ){ %><%= data.title + ' | ' ; %><%= TITLE %><% }else{ %><%= TITLE %><% } %>">
   <% if(data.noindex) { %>
     <meta name="robots" content="noindex,nofollow">

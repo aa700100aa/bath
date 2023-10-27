@@ -1,4 +1,4 @@
-import extend from 'modules/extend';
+import extend from './extend';
 
 const Eases = {
     linear : (t, b, c, d) => {
