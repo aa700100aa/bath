@@ -90,6 +90,7 @@
   font-size: 3.4vw;
   line-height: 1.5;
   text-align: justify;
+  font-weight: 300;
   @include media(sp,max) {
     margin-top: 3.2vw;
   }
@@ -120,6 +121,7 @@
 .price_tableElement {
   width: 75%;
   padding: 2vw 6vw;
+  font-weight: 300;
   @include media(sp,min) {
     padding: 15px 30px;
   }
@@ -127,6 +129,7 @@
 .price_tablePrice {
   width: 25%;
   padding: 2vw 6vw;
+  font-weight: 300;
   text-align: center;
   @include media(sp,min) {
     padding: 15px 30px;
@@ -144,6 +147,7 @@
 .access_address {
   font-size: 3.4vw;
   line-height: 1.5;
+  font-weight: 300;
   @include media(sp,min) {
     font-size: 14px;
   }
@@ -152,6 +156,7 @@
   margin-top: 1.2vw;
   font-size: 3.4vw;
   line-height: 1.5;
+  font-weight: 300;
   @include media(sp,min) {
     font-size: 14px;
     margin-top: 10px;
