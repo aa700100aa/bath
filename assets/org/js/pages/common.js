@@ -1,8 +1,32 @@
 import {SmoothScroll} from '../module/smoothScroll';
+import InView from '../module/inView';
 
 export const common = () => {
   ((d, w) => {
+    
+    // スクロール禁止関数
+    function noScroll(e) {
+	    e.preventDefault();
+    }
 
+    const kvScroll = d.getElementById('js-kvScroll');
+    w.addEventListener('load',()=>{
+      setTimeout(()=>{
+        //リロード時に常にページトップに戻る
+        w.scrollTo( 0, 0 );
+      },10);
+      w.addEventListener("mousewheel", noScroll, { passive: false });
+      w.addEventListener("touchmove", noScroll, { passive: false });
+      d.body.classList.add('add-loaded');
+    });
+    kvScroll.addEventListener('transitionend',()=>{
+      w.removeEventListener("mousewheel", noScroll, { passive: false });
+      w.removeEventListener("touchmove", noScroll, { passive: false });
+      d.body.classList.remove('add-lock');
+      new InView({
+        visibleType: "middle"
+      });
+    });
     //スクロール禁止
     let overlayHeight;
     let currentY;

@@ -39,14 +39,13 @@
 .kv_main {
   position: relative;
 }
-.kv_mainText {
+.kv_mainTextWrap {
   position: absolute;
-  top: 4vw;
+  z-index: 2;
+  top: 14vw;
   right: 6vw;
   color: #fff;
   font-size: 3.8vw;
-  padding: 12vw 1.5vw;
-  background-color: $primary-b;
   font-family: $font_mincho;
   -ms-writing-mode: tb-rl;
   writing-mode: vertical-rl;
@@ -58,6 +57,44 @@
     padding: 20px 8px;
   }
 }
+.kv_mainTextInner {
+  position: relative;
+}
+.kv_mainText {
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  display: inline-block;
+  transition: opacity 0.5s;
+  transition-delay: 3.75s;
+  .add-loaded & {
+    opacity: 1;
+  }
+  &::after {
+    margin-top: 5px;
+    content: '';
+    display: inline-block;
+    width: 1px;
+    background-color: #fff;
+    height: 3em;
+  }
+}
+.kv_mainTextBackground {
+  z-index: 1;
+  position: absolute;
+  top: -1.5em;
+  left: -0.375em;
+  content: '';
+  display: block;
+  background-color: $primary-b;
+  width: 1.75em;
+  height: 0;
+  transition: height 0.5s;
+  transition-delay: 3s;
+  .add-loaded & {
+    height: 19.5em;
+  }
+}
 .kv_mainImage {
   object-fit: cover;
   height: 100vh;
@@ -65,5 +102,53 @@
   height: calc(var(--loadVh, 1vh) * 100 - var(--kvLogoWrapHeight));
   @include media(sp,min) {
     min-height: 370px;
+    max-height: 700px;
+  }
+}
+.kv_scroll {
+  font-family: $font_mincho;
+  color: #fff;
+  position: absolute;
+  top: 90%;
+  right: 50%;
+  transform: translateX(50%);
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: rgba(255,255,255,0);
+  transition: opacity 0.5s;
+  opacity: 0;
+  transition-delay: 4.25s;
+  .add-loaded & {
+    opacity: 1;
+  }
+  &:hover {
+    opacity: 0.7 !important;
+  }
+  &::after {
+    content: '';
+    display: inline-block;
+    background-color: #fff;
+    width: 1px;
+    margin-top: 1vw;
+    transition: height 1s;
+    transition-delay: 4.25s;
+    height: 0;
+    @include media(sp,min) {
+      margin-top: 5px;
+      animation-name: kv_scrollPc;
+    }
+    .add-loaded & {
+      height: 7vw;
+      @include media(sp,min) {
+        height: 35px;
+      }
+    }
+  }
+  @include media(sp,min) {
+    top: 89%;
   }
 }

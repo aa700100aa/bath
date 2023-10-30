@@ -6,6 +6,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  @include inView;
   @include media(sp,min) {
     font-size: 24px;
   }
@@ -77,7 +78,7 @@
     flex-direction: row-reverse;
   }
 }
-.bath_img,.sauna_img {
+.bath_imgWrap,.sauna_imgWrap {
   @include media(sp,max) {
     margin-top: 3.2vw;
   }
@@ -173,4 +174,14 @@
   left: 0;
   width: 100%;
   height: 100%;
+}
+//動きのスタイル
+.about_textWrap,.bath_text,.sauna_text,.price_table,.access_textWrap,.access_mapWrap {
+  @include inView;
+}
+.bath_imgWrap {
+  @include inViewImg;
+}
+.sauna_imgWrap {
+  @include inViewImg;
 }

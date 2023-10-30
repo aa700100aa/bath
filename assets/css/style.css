@@ -83,6 +83,41 @@ input[type="button"] {
 /*
  +	共通で使うmixinはここにまとめる
  */
+@-webkit-keyframes imageAnimationAfter {
+  0% {
+    width: 0%;
+    right: auto;
+    left: 0; }
+  35% {
+    width: 100%;
+    right: auto;
+    left: 0; }
+  65% {
+    width: 100%;
+    right: 0;
+    left: auto; }
+  100% {
+    width: 0%;
+    right: 0;
+    left: auto; } }
+@keyframes imageAnimationAfter {
+  0% {
+    width: 0%;
+    right: auto;
+    left: 0; }
+  35% {
+    width: 100%;
+    right: auto;
+    left: 0; }
+  65% {
+    width: 100%;
+    right: 0;
+    left: auto; }
+  100% {
+    width: 0%;
+    right: 0;
+    left: auto; } }
+
 /* chrome, edge */
 /*
  +	core css
@@ -123,7 +158,13 @@ img {
   color: #102a4d;
   position: relative;
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: transform 0.5s, opacity 0.5s; }
+  .part_title.add-inView {
+    opacity: 1;
+    transform: translateY(0); }
   @media screen and (min-width: 768px) {
     .part_title {
       font-size: 24px; } }
@@ -191,11 +232,11 @@ img {
     flex-direction: row-reverse; } }
 
 @media screen and (max-width: 767px) {
-  .bath_img, .sauna_img {
+  .bath_imgWrap, .sauna_imgWrap {
     margin-top: 3.2vw; } }
 
 @media screen and (min-width: 768px) {
-  .bath_img, .sauna_img {
+  .bath_imgWrap, .sauna_imgWrap {
     width: 48%; } }
 
 .bath_text, .sauna_text {
@@ -286,6 +327,58 @@ img {
   width: 100%;
   height: 100%; }
 
+.about_textWrap, .bath_text, .sauna_text, .price_table, .access_textWrap, .access_mapWrap {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: transform 0.5s, opacity 0.5s; }
+  .about_textWrap.add-inView, .bath_text.add-inView, .sauna_text.add-inView, .price_table.add-inView, .access_textWrap.add-inView, .access_mapWrap.add-inView {
+    opacity: 1;
+    transform: translateY(0); }
+
+.bath_imgWrap {
+  position: relative; }
+  .bath_imgWrap .bath_img, .bath_imgWrap .sauna_img {
+    opacity: 0;
+    transition: opacity 0s;
+    transition-delay: 0.5s; }
+  .bath_imgWrap:after {
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: 1;
+    opacity: 1;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background-color: #102a4d; }
+  .bath_imgWrap.add-inView .bath_img, .bath_imgWrap.add-inView .sauna_img {
+    opacity: 1; }
+  .bath_imgWrap.add-inView:after {
+    -webkit-animation: imageAnimationAfter 1s both;
+            animation: imageAnimationAfter 1s both; }
+
+.sauna_imgWrap {
+  position: relative; }
+  .sauna_imgWrap .bath_img, .sauna_imgWrap .sauna_img {
+    opacity: 0;
+    transition: opacity 0s;
+    transition-delay: 0.5s; }
+  .sauna_imgWrap:after {
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: 1;
+    opacity: 1;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background-color: #102a4d; }
+  .sauna_imgWrap.add-inView .bath_img, .sauna_imgWrap.add-inView .sauna_img {
+    opacity: 1; }
+  .sauna_imgWrap.add-inView:after {
+    -webkit-animation: imageAnimationAfter 1s both;
+            animation: imageAnimationAfter 1s both; }
+
 .footer {
   background-color: #000;
   color: #fff;
@@ -356,7 +449,6 @@ img {
 .header {
   position: fixed;
   visibility: hidden;
-  height: 0;
   top: 0;
   opacity: 0;
   z-index: 10;
@@ -364,7 +456,6 @@ img {
   border-bottom: solid 1px #102a4d; }
   .header.add-visible {
     opacity: 1;
-    height: auto;
     visibility: visible; }
   @media screen and (min-width: 768px) {
     .header {
@@ -460,25 +551,59 @@ img {
 .kv_main {
   position: relative; }
 
-.kv_mainText {
+.kv_mainTextWrap {
   position: absolute;
-  top: 4vw;
+  z-index: 2;
+  top: 14vw;
   right: 6vw;
   color: #fff;
   font-size: 3.8vw;
-  padding: 12vw 1.5vw;
-  background-color: #102a4d;
   font-family: YuMincho, "Yu Mincho", "Hiragino Mincho ProN", HG明朝E, ＭＳＰ明朝, "MS 明朝", "Noto Serif JP", serif;
   -ms-writing-mode: tb-rl;
   -webkit-writing-mode: vertical-rl;
           writing-mode: vertical-rl;
   letter-spacing: 0.32em; }
   @media screen and (min-width: 768px) {
-    .kv_mainText {
+    .kv_mainTextWrap {
       font-size: 16px;
       top: 30px;
       right: 5vw;
       padding: 20px 8px; } }
+
+.kv_mainTextInner {
+  position: relative; }
+
+.kv_mainText {
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  display: inline-block;
+  transition: opacity 0.5s;
+  transition-delay: 3.75s; }
+  .add-loaded .kv_mainText {
+    opacity: 1; }
+  .kv_mainText::after {
+    margin-top: 5px;
+    content: '';
+    display: inline-block;
+    width: 1px;
+    background-color: #fff;
+    height: 3em; }
+
+.kv_mainTextBackground {
+  z-index: 1;
+  position: absolute;
+  top: -1.5em;
+  left: -0.375em;
+  content: '';
+  display: block;
+  background-color: #102a4d;
+  width: 1.75em;
+  height: 0;
+  transition: height 0.5s;
+  transition-delay: 3s; }
+  .add-loaded .kv_mainTextBackground {
+    height: 19.5em; }
 
 .kv_mainImage {
   -o-object-fit: cover;
@@ -488,7 +613,111 @@ img {
   height: calc(var(--loadVh, 1vh) * 100 - var(--kvLogoWrapHeight)); }
   @media screen and (min-width: 768px) {
     .kv_mainImage {
-      min-height: 370px; } }
+      min-height: 370px;
+      max-height: 700px; } }
+
+.kv_scroll {
+  font-family: YuMincho, "Yu Mincho", "Hiragino Mincho ProN", HG明朝E, ＭＳＰ明朝, "MS 明朝", "Noto Serif JP", serif;
+  color: #fff;
+  position: absolute;
+  top: 90%;
+  right: 50%;
+  transform: translateX(50%);
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0);
+  transition: opacity 0.5s;
+  opacity: 0;
+  transition-delay: 4.25s; }
+  .add-loaded .kv_scroll {
+    opacity: 1; }
+  .kv_scroll:hover {
+    opacity: 0.7 !important; }
+  .kv_scroll::after {
+    content: '';
+    display: inline-block;
+    background-color: #fff;
+    width: 1px;
+    margin-top: 1vw;
+    transition: height 1s;
+    transition-delay: 4.25s;
+    height: 0; }
+    @media screen and (min-width: 768px) {
+      .kv_scroll::after {
+        margin-top: 5px;
+        -webkit-animation-name: kv_scrollPc;
+                animation-name: kv_scrollPc; } }
+    .add-loaded .kv_scroll::after {
+      height: 7vw; }
+      @media screen and (min-width: 768px) {
+        .add-loaded .kv_scroll::after {
+          height: 35px; } }
+  @media screen and (min-width: 768px) {
+    .kv_scroll {
+      top: 89%; } }
+
+.loading {
+  width: 100%;
+  position: fixed;
+  height: 100vh;
+  height: calc(var(--loadVh, 1vh) * 100);
+  height: 100dvh;
+  background-color: #fff;
+  z-index: 12;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0.5s, opacity 0.5s;
+  transition-delay: 2.5s; }
+  .add-loaded .loading {
+    visibility: hidden;
+    opacity: 0; }
+
+.loading_logoWrap {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 1.5vw 0;
+  opacity: 0;
+  transition: opacity 0.5s;
+  transition-delay: 0.5s; }
+  .add-loaded .loading_logoWrap {
+    opacity: 1; }
+  @media screen and (min-width: 768px) {
+    .loading_logoWrap {
+      padding: 13px 0; } }
+
+.loading_logo {
+  width: 18vw; }
+  @media screen and (min-width: 768px) {
+    .loading_logo {
+      width: 80px; } }
+
+.loading_title {
+  width: 29vw;
+  margin-top: 1.2vw; }
+  @media screen and (min-width: 768px) {
+    .loading_title {
+      width: 128px;
+      margin-top: 8px; } }
+
+.loading_text {
+  font-family: YuMincho, "Yu Mincho", "Hiragino Mincho ProN", HG明朝E, ＭＳＰ明朝, "MS 明朝", "Noto Serif JP", serif;
+  font-size: 3.2vw;
+  color: #102a4d;
+  margin-top: 0.3vw;
+  transform: translateX(0.6vw); }
+  @media screen and (min-width: 768px) {
+    .loading_text {
+      font-size: 13px;
+      transform: translateX(2px);
+      margin-top: 3px; } }
 
 .nav_hmbgWrap {
   position: fixed;

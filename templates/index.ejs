@@ -12,6 +12,13 @@
   } 
 _%>
 <%_ data.content = function(){ _%>
+<div class="loading" id="js-loading">
+  <div class="loading_logoWrap">
+    <img class="loading_logo" src="./assets/images/header_logo.svg" alt="">
+    <img class="loading_title" src="./assets/images/header_title.png" alt="平和湯">
+    <span class="loading_text">HEIWAYU</span>
+  </div>
+</div>
 <main class="contents">
   <h1 class="kv_logoWrap" id="js-kvLogoWrap">
     <img class="kv_logo" src="./assets/images/header_logo.svg" alt="">
@@ -19,47 +26,59 @@ _%>
     <span class="kv_text">HEIWAYU</span>
   </h1>
   <div class="kv_main">
-    <p class="kv_mainText">心も体もゆっくり休める空間</p>
+    <p class="kv_mainTextWrap">
+      <span class="kv_mainTextInner">
+        <span class="kv_mainText">心も体も癒される空間</span>
+        <span class="kv_mainTextBackground"></span>
+      </span>
+    </p>
     <picture>
       <source srcset="./assets/images/pc/kv.jpg" media="(min-width: 768px)">
       <img class="kv_mainImage" src="./assets/images/kv.jpg" alt="">
     </picture>
+    <button id="js-kvScroll" class="kv_scroll js-pageLink" href="#about">scroll</button>
   </div>
   <section id="about" class="about">
-    <h2 class="part_title">
+    <h2 class="part_title js-inView">
       <span>平和湯とは</span>
       <span class="mod-en">ABOUT</span>
     </h2>
-    <p class="about_text mod-first">神奈川県川崎市にある<br class="util-sp">創業70年の歴史ある銭湯です。</p>
-    <p class="about_text">体をリラックスさせる効果のある温泉と<br class="util-sp">サウナを完備しております。</p>
-    <p class="about_text">長時間楽しめる居心地の良いおもてなし空間で<br>心も体もリフレッシュしていただければ幸いです。</p>
+    <div class="about_textWrap js-inView">
+      <p class="about_text mod-first">神奈川県川崎市にある<br class="util-sp">創業70年の歴史ある銭湯です。</p>
+      <p class="about_text">体をリラックスさせる効果のある温泉と<br class="util-sp">サウナを完備しております。</p>
+      <p class="about_text">長時間楽しめる居心地の良いおもてなし空間で<br>心も体もリフレッシュしていただければ幸いです。</p>
+    </div>
   </section>
-  <section id="onsen" class="bath">
-    <h2 class="part_title">
+  <section id="spa" class="bath">
+    <h2 class="part_title js-inView">
       <span>温泉</span>
-      <span class="mod-en">ONSEN</span>
+      <span class="mod-en">SPA</span>
     </h2>
     <div class="bath_inner">
-      <img class="bath_img" src="./assets/images/bath.jpg" alt="">
-      <p class="bath_text">平和湯は非加熱源泉。さらに源泉掛け流しで提供しています。泉質にもこだわり、地下1200mから汲み上げた温泉は温泉成分も濃く、体の芯まで染み渡ってゆきます。<br>また、天然の温泉のため泉質は常に一定ではございません。昼間と夜で温泉の色味が変わって見えることも平和湯の魅力の一つです。</p>
+      <div class="bath_imgWrap js-inView">
+        <img class="bath_img" src="./assets/images/bath.jpg" alt="">
+      </div>
+      <p class="bath_text js-inView">平和湯は非加熱源泉。さらに源泉掛け流しで提供しています。泉質にもこだわり、地下1200mから汲み上げた温泉は温泉成分も濃く、体の芯まで染み渡ってゆきます。<br>また、天然の温泉のため泉質は常に一定ではございません。昼間と夜で温泉の色味が変わって見えることも平和湯の魅力の一つです。</p>
     </div>
   </section>
   <section id="sauna" class="sauna">
-    <h2 class="part_title">
+    <h2 class="part_title js-inView">
       <span>サウナ</span>
       <span class="mod-en">SAUNA</span>
     </h2>
     <div class="sauna_inner">
-      <img class="sauna_img" src="./assets/images/sauna.jpg" alt="">
-      <p class="sauna_text">男女とも中温と高温の２種類のサウナを完備。サウナ初心者から玄人サウナーまで幅広く楽しめる仕様になっております。<br>２つのサウナがあるので、その日の気分でアウフグースを楽しみたい方も、一人でサウナを楽しみたい方もどちらも楽しめます。</p>
+      <div class="sauna_imgWrap js-inView">
+        <img class="sauna_img" src="./assets/images/sauna.jpg" alt="">
+      </div>
+      <p class="sauna_text js-inView">男女とも中温と高温の２種類のサウナを完備。サウナ初心者から玄人サウナーまで幅広く楽しめる仕様になっております。<br>２つのサウナがあるので、その日の気分でアウフグースを楽しみたい方も、一人でサウナを楽しみたい方もどちらも楽しめます。</p>
     </div>
   </section>
   <section id="price" class="price">
-    <h2 class="part_title">
+    <h2 class="part_title js-inView">
       <span>料金</span>
       <span class="mod-en">PRICE</span>
     </h2>
-    <table class="price_table">
+    <table class="price_table js-inView">
       <tbody>
         <tr class="price_tableItem">
           <td class="price_tableElement">入浴 大人（中学生以上）</td>
@@ -85,15 +104,15 @@ _%>
     </table>
   </section>
   <section id="access" class="access">
-    <h2 class="part_title">
+    <h2 class="part_title js-inView">
       <span>アクセス</span>
       <span class="mod-en">ACCESS</span>
     </h2>
-    <div class="access_textWrap">
+    <div class="access_textWrap js-inView">
       <address class="access_address">神奈川県川崎市XXX区XX-XX-XX</address>
       <p class="access_time">JR川崎駅より徒歩X分</p>
     </div>
-    <div class="access_mapWrap">
+    <div class="access_mapWrap js-inView">
       <iframe class="access_map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12989.296518282392!2d139.6891777570691!3d35.520987007505205!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60186098c55471ab%3A0xa40bb24f7d82f5fb!2z5bed5bSO6aeF!5e0!3m2!1sja!2sjp!4v1698283197007!5m2!1sja!2sjp" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </section>

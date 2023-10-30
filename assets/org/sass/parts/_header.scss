@@ -2,7 +2,6 @@
 .header {
   position: fixed;
   visibility: hidden;
-  height: 0;
   top: 0;
   opacity: 0;
   z-index: 10;
@@ -10,7 +9,6 @@
   border-bottom: solid 1px $primary-b;
   &.add-visible {
     opacity: 1;
-    height: auto;
     visibility: visible;
   }
   @include media(sp,min) {
