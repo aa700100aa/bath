@@ -9,23 +9,22 @@ export const common = () => {
 	    e.preventDefault();
     }
     w.addEventListener('load',()=>{
-      const kvScroll = d.getElementById('js-kvScroll');
-      d.body.classList.remove('add-preload');
+      w.addEventListener("mousewheel", noScroll, { passive: false });
+      w.addEventListener("touchmove", noScroll, { passive: false });
       setTimeout(()=>{
         //リロード時に常にページトップに戻る
         w.scrollTo( 0, 0 );
+        d.body.classList.remove('add-preload');
+        d.body.classList.add('add-loaded');
       },10);
-      w.addEventListener("mousewheel", noScroll, { passive: false });
-      w.addEventListener("touchmove", noScroll, { passive: false });
-      d.body.classList.add('add-loaded');
-      kvScroll.addEventListener('transitionend',()=>{
+      setTimeout(() => {
         w.removeEventListener("mousewheel", noScroll, { passive: false });
         w.removeEventListener("touchmove", noScroll, { passive: false });
         d.body.classList.remove('add-lock');
         new InView({
           visibleType: "middle"
         });
-      });
+      }, "4750");
     });
     //スクロール禁止
     let overlayHeight;
