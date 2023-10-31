@@ -19,7 +19,7 @@ body {
 }
 
 //transitionをロード前に発火させない
-.preload *{
+.add-preload *{
   transition: none !important;
   -webkit-transition: none !important;
   -moz-transition: none !important;

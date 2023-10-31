@@ -8,9 +8,8 @@ export const common = () => {
     function noScroll(e) {
 	    e.preventDefault();
     }
-
-    const kvScroll = d.getElementById('js-kvScroll');
     w.addEventListener('load',()=>{
+      const kvScroll = d.getElementById('js-kvScroll');
       d.body.classList.remove('add-preload');
       setTimeout(()=>{
         //リロード時に常にページトップに戻る
@@ -19,13 +18,13 @@ export const common = () => {
       w.addEventListener("mousewheel", noScroll, { passive: false });
       w.addEventListener("touchmove", noScroll, { passive: false });
       d.body.classList.add('add-loaded');
-    });
-    kvScroll.addEventListener('transitionend',()=>{
-      w.removeEventListener("mousewheel", noScroll, { passive: false });
-      w.removeEventListener("touchmove", noScroll, { passive: false });
-      d.body.classList.remove('add-lock');
-      new InView({
-        visibleType: "middle"
+      kvScroll.addEventListener('transitionend',()=>{
+        w.removeEventListener("mousewheel", noScroll, { passive: false });
+        w.removeEventListener("touchmove", noScroll, { passive: false });
+        d.body.classList.remove('add-lock');
+        new InView({
+          visibleType: "middle"
+        });
       });
     });
     //スクロール禁止
