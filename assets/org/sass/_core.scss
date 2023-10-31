@@ -18,6 +18,15 @@ body {
   }
 }
 
+//transitionをロード前に発火させない
+.preload *{
+  transition: none !important;
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+}
+
 .contents {
   @include media(sp,min) {
     margin-left: 55px;

@@ -11,6 +11,7 @@ export const common = () => {
 
     const kvScroll = d.getElementById('js-kvScroll');
     w.addEventListener('load',()=>{
+      d.body.classList.remove('add-preload');
       setTimeout(()=>{
         //リロード時に常にページトップに戻る
         w.scrollTo( 0, 0 );

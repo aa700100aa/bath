@@ -135,6 +135,13 @@ body {
   body.add-lock {
     overflow: hidden; }
 
+.preload * {
+  transition: none !important;
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important; }
+
 @media screen and (min-width: 768px) {
   .contents {
     margin-left: 55px; } }
