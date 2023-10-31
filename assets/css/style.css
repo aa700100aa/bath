@@ -651,8 +651,10 @@ img {
   cursor: pointer;
   background-color: rgba(255, 255, 255, 0);
   transition: opacity 0.5s;
+  -webkit-transition: opacity 0.5s;
   opacity: 0;
-  transition-delay: 4.25s; }
+  transition-delay: 4.25s;
+  -webkit-transition-delay: 4.25s; }
   .add-loaded .kv_scroll {
     opacity: 1; }
   .kv_scroll:hover {
@@ -694,7 +696,9 @@ img {
   visibility: visible;
   opacity: 1;
   transition: visibility 0.5s, opacity 0.5s;
-  transition-delay: 2.5s; }
+  -webkit-transition: visibility 0.5s, opacity 0.5s;
+  transition-delay: 2.5s;
+  -webkit-transition-delay: 2.5s; }
   .add-loaded .loading {
     visibility: hidden;
     opacity: 0; }

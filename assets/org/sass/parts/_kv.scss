@@ -120,8 +120,10 @@
   cursor: pointer;
   background-color: rgba(255,255,255,0);
   transition: opacity 0.5s;
+  -webkit-transition: opacity 0.5s;
   opacity: 0;
   transition-delay: 4.25s;
+  -webkit-transition-delay: 4.25s;
   .add-loaded & {
     opacity: 1;
   }
