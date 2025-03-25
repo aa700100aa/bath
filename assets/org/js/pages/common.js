@@ -3,7 +3,6 @@ import InView from '../module/inView';
 
 export const common = () => {
   ((d, w) => {
-    
     // スクロール禁止関数
     function noScroll(e) {
 	    e.preventDefault();
